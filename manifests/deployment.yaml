@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pruebadespliegue
+  labels:
+    app: pruebadespliegue
+  namespace: namespace-workflow-1698304675830
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pruebadespliegue
+  template:
+    metadata:
+      labels:
+        app: pruebadespliegue
+    spec:
+      containers:
+        - name: pruebadespliegue
+          image: microserviciosregistry.azurecr.io/image-workflow-1698304675830:latest
+          ports:
+            - containerPort: 3000
