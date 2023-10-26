@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: pruebadespliegue
-  namespace: namespace-workflow-1698305680252
+  name: pruebaespliegue2
+  namespace: namespace-workflow-1698307111067
 spec:
   type: LoadBalancer
   selector:
-    app: pruebadespliegue
+    app: pruebaespliegue2
   ports:
     - protocol: TCP
-      port: 8000
-      targetPort: 8000
+      port: 3000
+      targetPort: 3000
