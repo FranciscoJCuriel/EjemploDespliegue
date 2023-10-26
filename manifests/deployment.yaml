@@ -4,7 +4,7 @@ metadata:
   name: pruebadespliegue
   labels:
     app: pruebadespliegue
-  namespace: namespace-workflow-1698304675830
+  namespace: namespace-workflow-1698305680252
 spec:
   replicas: 1
   selector:
@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: pruebadespliegue
-          image: microserviciosregistry.azurecr.io/image-workflow-1698304675830:latest
+          image: microserviciosregistry.azurecr.io/image-workflow-1698305680252:latest
           ports:
-            - containerPort: 3000
+            - containerPort: 8000
