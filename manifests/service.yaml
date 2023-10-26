@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: despliegue7
-  namespace: namespace-workflow-1698315216455
+  namespace: namespace-workflow-1698316562600
 spec:
   type: LoadBalancer
   selector:
