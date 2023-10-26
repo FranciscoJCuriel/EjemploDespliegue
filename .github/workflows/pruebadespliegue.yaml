@@ -3,7 +3,7 @@ name: pruebadespliegue
     push:
         branches:
             - develop
-    workflow_dispatch: {}
+    workflow_dispatch: 
 env:
     ACR_RESOURCE_GROUP: Microserviciosregistry_group
     AZURE_CONTAINER_REGISTRY: Microserviciosregistry
