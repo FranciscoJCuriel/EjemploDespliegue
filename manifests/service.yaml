@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: despliegue12
-  namespace: namespace-workflow-1698580020414
+  name: despliegue13
+  namespace: namespace-workflow-1698582457859
 spec:
   type: LoadBalancer
   selector:
-    app: despliegue12
+    app: despliegue13
   ports:
     - protocol: TCP
       port: 3000
