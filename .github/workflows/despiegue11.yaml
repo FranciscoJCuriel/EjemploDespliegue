@@ -1,4 +1,4 @@
-name: despliegue11
+name: despiegue11
 "on":
     push:
         branches:
