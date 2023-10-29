@@ -1,5 +1,5 @@
 name: despliegue9
-"on":
+on:
     push:
         branches:
             - develop
