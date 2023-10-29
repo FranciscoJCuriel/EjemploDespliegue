@@ -40,19 +40,23 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - uses: azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2
+            
               name: Azure login
               with:
                 client-id: ${{ secrets.AZURE_CLIENT_ID }}
                 subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
                 tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+                
             - name: Verificar salida del contenedor Docker
               run: docker --version
             - uses: azure/use-kubelogin@v1
               name: Set up kubelogin for non-interactive login
               with:
                 kubelogin-version: v0.0.25
+                
             - name: Verificar salida del contenedor Docker
               run: docker --version
+              
             - uses: azure/aks-set-context@v3
               name: Get K8s context
               with:
@@ -60,16 +64,31 @@ jobs:
                 cluster-name: ${{ env.CLUSTER_NAME }}
                 resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
                 use-kubelogin: "true"
+                
             - uses: azure/docker-login@v1
               with:
                 login-server: 'redesplegando.azurecr.io' # default: index.docker.io
                 username: 'redesplegando'
                 password: 'JN9MqdgD09WbwjNj/GV+3n+ezEeyK+LLVyETE7uv08+ACRBlgap3'
+            
+            - run: |
+               docker build . -t redesplegando.azurecr.io/k8sdemo:${{ github.sha }}
+               docker push redesplegando.azurecr.io/k8sdemo:${{ github.sha }}
+
+            - uses: azure/setup-kubectl@v2.0
+            
+            - uses: Azure/k8s-create-secret@v1.1
+              with:
+                container-registry-url: redesplegando.azurecr.io
+                container-registry-username: 'redesplegando'
+                container-registry-password: 'JN9MqdgD09WbwjNj/GV+3n+ezEeyK+LLVyETE7uv08+ACRBlgap3'
+                secret-name: demo-k8s-secret   
+                  
             - uses: Azure/k8s-deploy@v4
               name: Deploys application
               with:
                 action: deploy
                 images: ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
                 manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
-                namespace: namespace-workflow-1698561074892
-                
+                imagepullsecrets: |
+                 demo-k8s-secret            
