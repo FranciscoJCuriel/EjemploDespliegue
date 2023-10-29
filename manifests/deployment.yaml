@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: despliegue9
+  name: despliegue10
   labels:
-    app: despliegue9
-  namespace: namespace-workflow-1698527924670
+    app: despliegue10
+  namespace: namespace-workflow-1698554353279
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: despliegue9
+      app: despliegue10
   template:
     metadata:
       labels:
-        app: despliegue9
+        app: despliegue10
     spec:
       containers:
-        - name: despliegue9
-          image: desplegandofronts.azurecr.io/image-workflow-1698527924670:latest
+        - name: despliegue10
+          image: desplegandofronts.azurecr.io/image-workflow-1698554353279:latest
           ports:
             - containerPort: 3000
