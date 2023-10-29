@@ -61,7 +61,7 @@ jobs:
                 resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
                 use-kubelogin: "true"
             - name: Iniciar sesión en Docker Registry
-              run: docker login -u 'redesplegando' -p 'JN9MqdgD09WbwjNj/GV+3n+ezEeyK+LLVyETE7uv08+ACRBlgap3'
+              run: az acr login --username 'redesplegando' --name 'redesplegando' --password-stdin 'JN9MqdgD09WbwjNj/GV+3n+ezEeyK+LLVyETE7uv08+ACRBlgap3'
             - uses: Azure/k8s-deploy@v4
               name: Deploys application
               with:
