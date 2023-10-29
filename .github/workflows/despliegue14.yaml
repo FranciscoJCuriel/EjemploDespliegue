@@ -67,7 +67,8 @@ jobs:
                 container-registry-url: pakoleal.azurecr.io
                 container-registry-username: 'pakoleal'
                 container-registry-password: '0IqyNWKGATBjW06uDFyoax4j4U2Ta7Z1VWUv9yWCa9+ACRDaSJ79'
-                secret-name: demo-k8s-secret      
+                secret-name: demo-k8s-secret1      
+                
             - uses: azure/aks-set-context@v3
               name: Get K8s context
               with:
@@ -75,6 +76,7 @@ jobs:
                 cluster-name: ${{ env.CLUSTER_NAME }}
                 resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
                 use-kubelogin: "true"
+                
             - uses: Azure/k8s-deploy@v4
               name: Deploys application
               with:
@@ -82,3 +84,5 @@ jobs:
                 images: ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
                 manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
                 namespace: namespace-workflow-1698606620307
+                imagepullsecrets: |
+                 demo-k8s-secret1  
