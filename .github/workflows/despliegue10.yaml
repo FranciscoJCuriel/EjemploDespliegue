@@ -3,7 +3,7 @@ name: despliegue10
     push:
         branches:
             - develop
-    workflow_dispatch: {}
+    workflow_dispatch: 
 env:
     ACR_RESOURCE_GROUP: Despliegues
     AZURE_CONTAINER_REGISTRY: desplegandofronts
