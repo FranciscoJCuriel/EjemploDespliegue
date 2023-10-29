@@ -72,8 +72,8 @@ jobs:
                 password: 'JN9MqdgD09WbwjNj/GV+3n+ezEeyK+LLVyETE7uv08+ACRBlgap3'
             
             - run: |
-               docker build . -t redesplegando.azurecr.io/k8sdemo:${{ github.sha }}
-               docker push redesplegando.azurecr.io/k8sdemo:${{ github.sha }}
+               docker build . -t  ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
+               docker push  ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
 
             - uses: azure/setup-kubectl@v2.0
             
