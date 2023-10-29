@@ -4,7 +4,7 @@ metadata:
   name: despliegue13
   labels:
     app: despliegue13
-  namespace: namespace-workflow-1698582457859
+  namespace: namespace-workflow-1698583336555
 spec:
   replicas: 1
   selector:
@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: despliegue13
-          image: pakoleal.azurecr.io/image-workflow-1698582457859:latest
+          image: pakoleal.azurecr.io/azure-vote-1698309143068:latest
           ports:
             - containerPort: 3000
