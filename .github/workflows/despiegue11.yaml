@@ -45,6 +45,8 @@ jobs:
                 client-id: ${{ secrets.AZURE_CLIENT_ID }}
                 subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
                 tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+            - name: Verificar salida del contenedor Docker
+              run: docker --version
             - uses: azure/use-kubelogin@v1
               name: Set up kubelogin for non-interactive login
               with:
