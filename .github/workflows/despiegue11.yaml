@@ -49,6 +49,8 @@ jobs:
               name: Set up kubelogin for non-interactive login
               with:
                 kubelogin-version: v0.0.25
+            - name: Verificar salida del contenedor Docker
+              run: docker --version
             - uses: azure/aks-set-context@v3
               name: Get K8s context
               with:
@@ -63,3 +65,4 @@ jobs:
                 images: ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
                 manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
                 namespace: namespace-workflow-1698561074892
+                
