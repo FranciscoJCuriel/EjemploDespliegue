@@ -49,6 +49,25 @@ jobs:
               name: Set up kubelogin for non-interactive login
               with:
                 kubelogin-version: v0.0.25
+
+            - uses: azure/docker-login@v1
+              with:
+                login-server: 'pakoleal.azurecr.io' # default: index.docker.io
+                username: 'pakoleal'
+                password: '0IqyNWKGATBjW06uDFyoax4j4U2Ta7Z1VWUv9yWCa9+ACRDaSJ79'
+            
+            - run: |
+               docker build . -t  ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
+               docker push  ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
+
+            - uses: azure/setup-kubectl@v2.0
+            
+            - uses: Azure/k8s-create-secret@v1.1
+              with:
+                container-registry-url: pakoleal.azurecr.io
+                container-registry-username: 'pakoleal'
+                container-registry-password: '0IqyNWKGATBjW06uDFyoax4j4U2Ta7Z1VWUv9yWCa9+ACRDaSJ79'
+                secret-name: demo-k8s-secret      
             - uses: azure/aks-set-context@v3
               name: Get K8s context
               with:
