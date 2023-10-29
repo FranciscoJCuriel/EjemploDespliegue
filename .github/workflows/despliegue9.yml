@@ -2,7 +2,7 @@ name: despliegue9
 "on":
     push:
         branches:
-            - develop
+            - main
     workflow_dispatch: {}
 env:
     ACR_RESOURCE_GROUP: Despliegues
@@ -63,3 +63,5 @@ jobs:
                 images: ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
                 manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
                 namespace: namespace-workflow-1698527924670
+                imagepullsecrets: | 
+                 despliegue9-5547d7fcd9
