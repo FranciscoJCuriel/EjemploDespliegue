@@ -6,6 +6,8 @@ metadata:
     app: despliegue14
   namespace: namespace-workflow-1698606620307
 spec:
+  concurrencyPolicy: Forbid
+  failedJobsHistoryLimit: 1
   replicas: 1
   selector:
     matchLabels:
@@ -15,7 +17,6 @@ spec:
       labels:
         app: despliegue14
     spec:
-      restartPolicy: Never
       containers:
         - name: despliegue14
           image: pakoleal.azurecr.io/image-workflow-1698606620307:latest
@@ -29,4 +30,5 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "500m"
+      restartPolicy: Never
          
