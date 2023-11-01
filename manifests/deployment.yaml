@@ -15,11 +15,11 @@ spec:
       labels:
         app: despliegue14
     spec:
+      restartPolicy: Never
       containers:
         - name: despliegue14
           image: pakoleal.azurecr.io/image-workflow-1698606620307:latest
           imagePullPolicy: Always
-            - restartPolicy: Never
           ports:
             - containerPort: 3000
           resources:
