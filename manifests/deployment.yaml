@@ -6,8 +6,6 @@ metadata:
     app: despliegue14
   namespace: namespace-workflow-1698606620307
 spec:
-  concurrencyPolicy: Forbid
-  failedJobsHistoryLimit: 1
   replicas: 1
   selector:
     matchLabels:
