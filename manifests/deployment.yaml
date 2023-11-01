@@ -18,13 +18,14 @@ spec:
       containers:
         - name: despliegue14
           image: pakoleal.azurecr.io/image-workflow-1698606620307:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
           resources:
             requests:
               memory: "64Mi"
               cpu: "250m"
-          limits:
+            limits:
               memory: "128Mi"
               cpu: "500m"
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 3000
+         
