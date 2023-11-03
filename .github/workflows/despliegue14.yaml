@@ -60,7 +60,7 @@ jobs:
                 
             - uses: azure/docker-login@v1
               with:
-                login-server: 'pakoleal.azurecr.io' # default: index.docker.io
+                login-server: 'pakoleal.azurecr.io' # default: index.docker.io, cambios 
                 username: 'pakoleal'
                 password: '0IqyNWKGATBjW06uDFyoax4j4U2Ta7Z1VWUv9yWCa9+ACRDaSJ79'
             
