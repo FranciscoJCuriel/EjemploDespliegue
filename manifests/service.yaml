@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: despliegue14
+  namespace: namespace-workflow-1698606620307
+spec:
+  type: LoadBalancer
+  selector:
+    app: despliegue14
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      name: http
