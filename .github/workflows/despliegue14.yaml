@@ -1,8 +1,8 @@
 name: despliegue14
 on:
-    push:
-        branches:
-            - develop
+   # push:
+    #    branches:
+     #       - develop
     workflow_dispatch:
 env:
     ACR_RESOURCE_GROUP: Despliegues
