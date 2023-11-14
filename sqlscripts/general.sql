@@ -1,3 +1,7 @@
-CREATE Table ejemplo(
-	int id
+CREATE TABLE Usuarios (
+Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
+Nombre VARCHAR(40) NOT NULL,
+Apellido VARCHAR(40) NOT NULL,
+Domicilio TEXT,
+Fecha_Nacimiento DATETIME
 );
