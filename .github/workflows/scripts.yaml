@@ -3,11 +3,7 @@ on:
   workflow_dispatch:
 
 env:
-     clientId: "78263765-8c3d-46bf-8e43-e363d2f7d227",
-     clientSecret: " 29d3ac06-7af2-429d-931f-4a7d27a0d246",
-     subscriptionId: "a11dee82-040f-41da-a41c-babb4e814fe9",
-     tenantId: " 29d3ac06-7af2-429d-931f-4a7d27a0d246"
-     AZURE_SQL_CONNECTION_STRING: "jdbc:sqlserver://trasoto.database.windows.net:1433;database=trasotodatabase;user=cloudsa3d8277fa@trasoto;password=M3g4h4b1l1d4d3s*;encrypt=true;trustservercertificate=false;hostnameincertificate=*.database.windows.net;loginTimeout=30;"
+   AZURE_SQL_CONNECTION_STRING: "jdbc:sqlserver://trasoto.database.windows.net:1433;database=trasotodatabase;user=cloudsa3d8277fa@trasoto;password=M3g4h4b1l1d4d3s*;encrypt=true;trustservercertificate=false;hostnameincertificate=*.database.windows.net;loginTimeout=30;"
 
 jobs:
     Execution-Scripts:
@@ -30,5 +26,5 @@ jobs:
                 
             - uses: azure/sql-action@v2.2
               with:        
-              connection-string: ${{ env.AZURE_SQL_CONNECTION_STRING }}
-              path: './sqlscripts/general.sql'
+                connection-string: ${{ env.AZURE_SQL_CONNECTION_STRING }}
+                path: './sqlscripts/general.sql'
