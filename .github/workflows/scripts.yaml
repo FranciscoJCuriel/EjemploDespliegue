@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_SQL_CONNECTION_STRING: "jdbc:sqlserver://trasoto.database.windows.net:1433;database=trasotodatabase;user=cloudsa3d8277fa@trasoto;password=M3g4h4b1l1d4d3s*;encrypt=true;trustservercertificate=false;hostnameincertificate=*.database.windows.net;loginTimeout=30;"
+  AZURE_SQL_CONNECTION_STRING: "jdbc:sqlserver://trasoto.database.windows.net:1433;database=trasotodatabase;user='megahabilidades@trasoto.com;password=M3g4h4b1l1d4d3s*;encrypt=true;trustservercertificate=false;hostnameincertificate=*.database.windows.net;loginTimeout=30;"
 
 jobs:
     Execution-Scripts:
